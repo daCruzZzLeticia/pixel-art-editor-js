@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+body {
+    background-color: #212121;
+}
+
+header {
+    background-color: #292929;
+    padding: 0 15px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.3);
+}
+
+header > h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ebebeb;
+}
