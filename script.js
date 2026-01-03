@@ -2,6 +2,8 @@ const canvas = document.querySelector('.canvas')
 const inputSize = document.querySelector('.input-size')
 const inputColor = document.querySelector('.input-color')
 
+let isPainting = false
+
 const createElement = (tag, className = '') => {
     const element = document.createElement(tag)
     element.className = className
@@ -15,6 +17,9 @@ const setPixelColor = (pixel) => {
 const createPixel = () => {
     const pixel = createElement('div', 'pixel')
     pixel.addEventListener('mousedown', () => setPixelColor(pixel))
+    pixel.addEventListener('mouseover', () => {
+        if (isPainting) setPixelColor(pixel)
+    })
     return pixel
 }
 
@@ -32,4 +37,6 @@ const loadCanvas = () => {
     }
 }
 
+canvas.addEventListener('mousedown', () => (isPainting = true))
+canvas.addEventListener('mouseup', () => (isPainting = false))
 loadCanvas()
