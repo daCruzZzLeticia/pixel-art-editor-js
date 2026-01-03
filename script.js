@@ -25,6 +25,7 @@ const createPixel = () => {
 
 const loadCanvas = () => {
     const length = inputSize.value
+    canvas.innerHTML = ''
 
     for (let i = 0; i < length; i += 1) {
         const row = createElement('div', 'row')
@@ -37,6 +38,11 @@ const loadCanvas = () => {
     }
 }
 
+const updateCanvasSize = () => {
+    loadCanvas()
+}
+
 canvas.addEventListener('mousedown', () => (isPainting = true))
 canvas.addEventListener('mouseup', () => (isPainting = false))
+inputSize.addEventListener('change', updateCanvasSize)
 loadCanvas()
