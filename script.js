@@ -1,5 +1,6 @@
 const canvas = document.querySelector('.canvas')
 const inputSize = document.querySelector('.input-size')
+const inputColor = document.querySelector('.input-color')
 
 const createElement = (tag, className = '') => {
     const element = document.createElement(tag)
@@ -7,8 +8,13 @@ const createElement = (tag, className = '') => {
     return element
 }
 
+const setPixelColor = (pixel) => {
+    pixel.style.backgroundColor = inputColor.value
+}
+
 const createPixel = () => {
     const pixel = createElement('div', 'pixel')
+    pixel.addEventListener('mousedown', () => setPixelColor(pixel))
     return pixel
 }
 
