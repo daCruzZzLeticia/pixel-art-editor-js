@@ -1,6 +1,7 @@
 const canvas = document.querySelector('.canvas')
 const inputSize = document.querySelector('.input-size')
 const inputColor = document.querySelector('.input-color')
+const usedColors = document.querySelector('.used-colors')
 
 let isPainting = false
 
@@ -42,7 +43,21 @@ const updateCanvasSize = () => {
     loadCanvas()
 }
 
+const changeColor = () => {
+    const button = createElement('button', 'button-color')
+    const currentColor = inputColor.value
+
+    button.style.backgroundColor = currentColor
+
+    button.addEventListener('click', () => (inputColor.value = currentColor))
+
+    usedColors.append(button)
+}
+
 canvas.addEventListener('mousedown', () => (isPainting = true))
 canvas.addEventListener('mouseup', () => (isPainting = false))
+
 inputSize.addEventListener('change', updateCanvasSize)
+inputColor.addEventListener('change', changeColor)
+
 loadCanvas()
