@@ -3,6 +3,8 @@ const inputSize = document.querySelector('.input-size')
 const inputColor = document.querySelector('.input-color')
 const usedColors = document.querySelector('.used-colors')
 
+const MIN_CANVAS_SIZE = 4
+
 let isPainting = false
 
 const createElement = (tag, className = '') => {
@@ -40,7 +42,9 @@ const loadCanvas = () => {
 }
 
 const updateCanvasSize = () => {
-    loadCanvas()
+    if (inputSize.value >= MIN_CANVAS_SIZE) {
+        loadCanvas()
+    }
 }
 
 const changeColor = () => {
